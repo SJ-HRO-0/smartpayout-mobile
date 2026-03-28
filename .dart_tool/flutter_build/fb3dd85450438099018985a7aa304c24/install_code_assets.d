@@ -1,0 +1,1 @@
+ C:\\Users\\juanj\\smartpayut_mobile\\smartpayut_mobile\\.dart_tool\\flutter_build\\fb3dd85450438099018985a7aa304c24\\native_assets.json: 
