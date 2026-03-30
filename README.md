@@ -1,6 +1,3 @@
-# README para `smartpayout-mobile`
-
-```md
 # SmartPayout Mobile
 
 Aplicación móvil del proyecto **Capstone Pagos QR/NFC**.  
