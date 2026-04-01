@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="C:\Users\juanj\smartpayut_mobile\smartpayut_mobile\build\windows\x64\CMakeFiles\22daf5c73fd0d7d6957b4f9fe38da3a9\INSTALL_force.rule">
+    <CustomBuild Include="C:\Users\juanj\smartpayut_mobile\build\windows\x64\CMakeFiles\cf3691b40f11e166b2570c4eacdb011c\INSTALL_force.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{87D8A94B-85E7-32E0-8685-73F39D8F5200}</UniqueIdentifier>
+      <UniqueIdentifier>{20939C23-8A6D-3825-A037-F48292D3691F}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

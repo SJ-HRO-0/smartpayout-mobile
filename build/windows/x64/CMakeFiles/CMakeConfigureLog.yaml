@@ -24,9 +24,9 @@ events:
       The output was:
       0
       Versi├│n de MSBuild 17.14.40+3e7442088 para .NET Framework
-      Compilaci├│n iniciada a las 25/3/2026 01:37:54.
+      Compilaci├│n iniciada a las 31/3/2026 05:19:42.
       
-      Proyecto "C:\\Users\\juanj\\smartpayut_mobile\\smartpayut_mobile\\build\\windows\\x64\\CMakeFiles\\3.31.6-msvc6\\CompilerIdCXX\\CompilerIdCXX.vcxproj" en nodo 1 (destinos predeterminados).
+      Proyecto "C:\\Users\\juanj\\smartpayut_mobile\\build\\windows\\x64\\CMakeFiles\\3.31.6-msvc6\\CompilerIdCXX\\CompilerIdCXX.vcxproj" en nodo 1 (destinos predeterminados).
       PrepareForBuild:
         Creando directorio "Debug\\".
         La salida estructurada est├í habilitada. El formato del diagn├│stico del compilador reflejar├í la jerarqu├¡a de errores. Consulte https://aka.ms/cpp/structured-output para obtener m├ís detalles.
@@ -39,7 +39,7 @@ events:
         CMakeCXXCompilerId.cpp
       Link:
         C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X64 Debug\\CMakeCXXCompilerId.obj
-        CompilerIdCXX.vcxproj -> C:\\Users\\juanj\\smartpayut_mobile\\smartpayut_mobile\\build\\windows\\x64\\CMakeFiles\\3.31.6-msvc6\\CompilerIdCXX\\CompilerIdCXX.exe
+        CompilerIdCXX.vcxproj -> C:\\Users\\juanj\\smartpayut_mobile\\build\\windows\\x64\\CMakeFiles\\3.31.6-msvc6\\CompilerIdCXX\\CompilerIdCXX.exe
       PostBuildEvent:
         for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
         :VCEnd
@@ -47,13 +47,13 @@ events:
       FinalizeBuildStatus:
         Se eliminar├í el archivo "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild".
         Aplicando tarea Touch a "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.lastbuildstate".
-      Compilaci├│n del proyecto terminada "C:\\Users\\juanj\\smartpayut_mobile\\smartpayut_mobile\\build\\windows\\x64\\CMakeFiles\\3.31.6-msvc6\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (destinos predeterminados).
+      Compilaci├│n del proyecto terminada "C:\\Users\\juanj\\smartpayut_mobile\\build\\windows\\x64\\CMakeFiles\\3.31.6-msvc6\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (destinos predeterminados).
       
       Compilaci├│n correcta.
           0 Advertencia(s)
           0 Errores
       
-      Tiempo transcurrido 00:00:02.35
+      Tiempo transcurrido 00:00:02.00
       
       
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -61,7 +61,7 @@ events:
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
       
       The CXX compiler identification is MSVC, found in:
-        C:/Users/juanj/smartpayut_mobile/smartpayut_mobile/build/windows/x64/CMakeFiles/3.31.6-msvc6/CompilerIdCXX/CompilerIdCXX.exe
+        C:/Users/juanj/smartpayut_mobile/build/windows/x64/CMakeFiles/3.31.6-msvc6/CompilerIdCXX/CompilerIdCXX.exe
       
   -
     kind: "try_compile-v1"
@@ -72,8 +72,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Users/juanj/smartpayut_mobile/smartpayut_mobile/build/windows/x64/CMakeFiles/CMakeScratch/TryCompile-y5p51o"
-      binary: "C:/Users/juanj/smartpayut_mobile/smartpayut_mobile/build/windows/x64/CMakeFiles/CMakeScratch/TryCompile-y5p51o"
+      source: "C:/Users/juanj/smartpayut_mobile/build/windows/x64/CMakeFiles/CMakeScratch/TryCompile-7cnix3"
+      binary: "C:/Users/juanj/smartpayut_mobile/build/windows/x64/CMakeFiles/CMakeScratch/TryCompile-7cnix3"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
@@ -83,40 +83,40 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/juanj/smartpayut_mobile/smartpayut_mobile/build/windows/x64/CMakeFiles/CMakeScratch/TryCompile-y5p51o'
+        Change Dir: 'C:/Users/juanj/smartpayut_mobile/build/windows/x64/CMakeFiles/CMakeScratch/TryCompile-7cnix3'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_7bcbb.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_f3d8e.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         Versi├│n de MSBuild 17.14.40+3e7442088 para .NET Framework
-        Compilaci├│n iniciada a las 25/3/2026 01:37:57.
+        Compilaci├│n iniciada a las 31/3/2026 05:19:45.
         
-        Proyecto "C:\\Users\\juanj\\smartpayut_mobile\\smartpayut_mobile\\build\\windows\\x64\\CMakeFiles\\CMakeScratch\\TryCompile-y5p51o\\cmTC_7bcbb.vcxproj" en nodo 1 (destinos predeterminados).
+        Proyecto "C:\\Users\\juanj\\smartpayut_mobile\\build\\windows\\x64\\CMakeFiles\\CMakeScratch\\TryCompile-7cnix3\\cmTC_f3d8e.vcxproj" en nodo 1 (destinos predeterminados).
         PrepareForBuild:
-          Creando directorio "cmTC_7bcbb.dir\\Debug\\".
+          Creando directorio "cmTC_f3d8e.dir\\Debug\\".
           La salida estructurada est├í habilitada. El formato del diagn├│stico del compilador reflejar├í la jerarqu├¡a de errores. Consulte https://aka.ms/cpp/structured-output para obtener m├ís detalles.
-          Creando directorio "C:\\Users\\juanj\\smartpayut_mobile\\smartpayut_mobile\\build\\windows\\x64\\CMakeFiles\\CMakeScratch\\TryCompile-y5p51o\\Debug\\".
-          Creando directorio "cmTC_7bcbb.dir\\Debug\\cmTC_7bcbb.tlog\\".
+          Creando directorio "C:\\Users\\juanj\\smartpayut_mobile\\build\\windows\\x64\\CMakeFiles\\CMakeScratch\\TryCompile-7cnix3\\Debug\\".
+          Creando directorio "cmTC_f3d8e.dir\\Debug\\cmTC_f3d8e.tlog\\".
         InitializeBuildStatus:
-          Se crear├í "cmTC_7bcbb.dir\\Debug\\cmTC_7bcbb.tlog\\unsuccessfulbuild" porque se especific├│ "AlwaysCreate".
-          Aplicando tarea Touch a "cmTC_7bcbb.dir\\Debug\\cmTC_7bcbb.tlog\\unsuccessfulbuild".
+          Se crear├í "cmTC_f3d8e.dir\\Debug\\cmTC_f3d8e.tlog\\unsuccessfulbuild" porque se especific├│ "AlwaysCreate".
+          Aplicando tarea Touch a "cmTC_f3d8e.dir\\Debug\\cmTC_f3d8e.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_7bcbb.dir\\Debug\\\\" /Fd"cmTC_7bcbb.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.31\\Modules\\CMakeCXXCompilerABI.cpp"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_f3d8e.dir\\Debug\\\\" /Fd"cmTC_f3d8e.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.31\\Modules\\CMakeCXXCompilerABI.cpp"
           Compilador de optimizaci├│n de C/C++ de Microsoft (R) versi├│n 19.44.35222 para x64
           (C) Microsoft Corporation. Todos los derechos reservados.
-          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_7bcbb.dir\\Debug\\\\" /Fd"cmTC_7bcbb.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.31\\Modules\\CMakeCXXCompilerABI.cpp"
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_f3d8e.dir\\Debug\\\\" /Fd"cmTC_f3d8e.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.31\\Modules\\CMakeCXXCompilerABI.cpp"
           CMakeCXXCompilerABI.cpp
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\juanj\\smartpayut_mobile\\smartpayut_mobile\\build\\windows\\x64\\CMakeFiles\\CMakeScratch\\TryCompile-y5p51o\\Debug\\cmTC_7bcbb.exe" /INCREMENTAL /ILK:"cmTC_7bcbb.dir\\Debug\\cmTC_7bcbb.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/juanj/smartpayut_mobile/smartpayut_mobile/build/windows/x64/CMakeFiles/CMakeScratch/TryCompile-y5p51o/Debug/cmTC_7bcbb.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/juanj/smartpayut_mobile/smartpayut_mobile/build/windows/x64/CMakeFiles/CMakeScratch/TryCompile-y5p51o/Debug/cmTC_7bcbb.lib" /MACHINE:X64  /machine:x64 cmTC_7bcbb.dir\\Debug\\CMakeCXXCompilerABI.obj
-          cmTC_7bcbb.vcxproj -> C:\\Users\\juanj\\smartpayut_mobile\\smartpayut_mobile\\build\\windows\\x64\\CMakeFiles\\CMakeScratch\\TryCompile-y5p51o\\Debug\\cmTC_7bcbb.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\juanj\\smartpayut_mobile\\build\\windows\\x64\\CMakeFiles\\CMakeScratch\\TryCompile-7cnix3\\Debug\\cmTC_f3d8e.exe" /INCREMENTAL /ILK:"cmTC_f3d8e.dir\\Debug\\cmTC_f3d8e.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/juanj/smartpayut_mobile/build/windows/x64/CMakeFiles/CMakeScratch/TryCompile-7cnix3/Debug/cmTC_f3d8e.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/juanj/smartpayut_mobile/build/windows/x64/CMakeFiles/CMakeScratch/TryCompile-7cnix3/Debug/cmTC_f3d8e.lib" /MACHINE:X64  /machine:x64 cmTC_f3d8e.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_f3d8e.vcxproj -> C:\\Users\\juanj\\smartpayut_mobile\\build\\windows\\x64\\CMakeFiles\\CMakeScratch\\TryCompile-7cnix3\\Debug\\cmTC_f3d8e.exe
         FinalizeBuildStatus:
-          Se eliminar├í el archivo "cmTC_7bcbb.dir\\Debug\\cmTC_7bcbb.tlog\\unsuccessfulbuild".
-          Aplicando tarea Touch a "cmTC_7bcbb.dir\\Debug\\cmTC_7bcbb.tlog\\cmTC_7bcbb.lastbuildstate".
-        Compilaci├│n del proyecto terminada "C:\\Users\\juanj\\smartpayut_mobile\\smartpayut_mobile\\build\\windows\\x64\\CMakeFiles\\CMakeScratch\\TryCompile-y5p51o\\cmTC_7bcbb.vcxproj" (destinos predeterminados).
+          Se eliminar├í el archivo "cmTC_f3d8e.dir\\Debug\\cmTC_f3d8e.tlog\\unsuccessfulbuild".
+          Aplicando tarea Touch a "cmTC_f3d8e.dir\\Debug\\cmTC_f3d8e.tlog\\cmTC_f3d8e.lastbuildstate".
+        Compilaci├│n del proyecto terminada "C:\\Users\\juanj\\smartpayut_mobile\\build\\windows\\x64\\CMakeFiles\\CMakeScratch\\TryCompile-7cnix3\\cmTC_f3d8e.vcxproj" (destinos predeterminados).
         
         Compilaci├│n correcta.
             0 Advertencia(s)
             0 Errores
         
-        Tiempo transcurrido 00:00:01.19
+        Tiempo transcurrido 00:00:01.15
         
       exitCode: 0
   -

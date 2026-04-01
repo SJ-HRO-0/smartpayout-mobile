@@ -1,6 +1,6 @@
-^C:\USERS\JUANJ\SMARTPAYUT_MOBILE\SMARTPAYUT_MOBILE\BUILD\WINDOWS\X64\CMAKEFILES\FA80201ADAA61AF5D66FD43C6F2F169A\GENERATE.STAMP.RULE
+^C:\USERS\JUANJ\SMARTPAYUT_MOBILE\BUILD\WINDOWS\X64\CMAKEFILES\08C673B1FA2B8BD01A4D509BD348E423\GENERATE.STAMP.RULE
 setlocal
-"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/juanj/smartpayut_mobile/smartpayut_mobile/windows -BC:/Users/juanj/smartpayut_mobile/smartpayut_mobile/build/windows/x64 --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/juanj/smartpayut_mobile/smartpayut_mobile/build/windows/x64/smartpayut_mobile.sln
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/juanj/smartpayut_mobile/windows -BC:/Users/juanj/smartpayut_mobile/build/windows/x64 --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/juanj/smartpayut_mobile/build/windows/x64/smartpayut_mobile.sln
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
