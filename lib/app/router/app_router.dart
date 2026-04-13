@@ -4,6 +4,7 @@ import 'package:smartpayut_mobile/app/router/route_names.dart';
 import 'package:smartpayut_mobile/app/router/route_paths.dart';
 import 'package:smartpayut_mobile/features/auth/presentation/controllers/auth_controller.dart';
 import 'package:smartpayut_mobile/features/auth/presentation/pages/login_page.dart';
+import 'package:smartpayut_mobile/features/auth/presentation/pages/register_page.dart';
 import 'package:smartpayut_mobile/features/history/presentation/pages/history_page.dart';
 import 'package:smartpayut_mobile/features/home/presentation/pages/home_page.dart';
 import 'package:smartpayut_mobile/features/payments/presentation/pages/payments_page.dart';
@@ -17,13 +18,17 @@ final appRouterProvider = Provider<GoRouter>((ref) {
     initialLocation: RoutePaths.login,
     redirect: (context, state) {
       final isLoggedIn = authState != null;
-      final isLoginRoute = state.matchedLocation == RoutePaths.login;
+      final publicRoutes = {
+        RoutePaths.login,
+        RoutePaths.register,
+      };
+      final isPublicRoute = publicRoutes.contains(state.matchedLocation);
 
-      if (!isLoggedIn && !isLoginRoute) {
+      if (!isLoggedIn && !isPublicRoute) {
         return RoutePaths.login;
       }
 
-      if (isLoggedIn && isLoginRoute) {
+      if (isLoggedIn && isPublicRoute) {
         return RoutePaths.home;
       }
 
@@ -34,6 +39,11 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         path: RoutePaths.login,
         name: RouteNames.login,
         builder: (context, state) => const LoginPage(),
+      ),
+      GoRoute(
+        path: RoutePaths.register,
+        name: RouteNames.register,
+        builder: (context, state) => const RegisterPage(),
       ),
       ShellRoute(
         builder: (context, state, child) => MainShellPage(child: child),

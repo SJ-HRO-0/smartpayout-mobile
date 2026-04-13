@@ -1,17 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:smartpayut_mobile/shared/models/app_user.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:intl/intl.dart';
+import 'package:smartpayut_mobile/features/auth/presentation/controllers/auth_controller.dart';
+import 'package:smartpayut_mobile/features/wallet/data/models/transaction_item.dart';
+import 'package:smartpayut_mobile/features/wallet/presentation/controllers/wallet_controller.dart';
+import 'package:smartpayut_mobile/shared/config/app_seed_data.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends ConsumerWidget {
   const HomePage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    const mockUser = AppUser(
-      id: '1',
-      name: 'Juan José Aráuz',
-      email: 'jj.arauz@kynsoft.com',
-      role: UserRole.operator,
-    );
+  Widget build(BuildContext context, WidgetRef ref) {
+    final user = ref.watch(authControllerProvider);
+    final balanceAsync = ref.watch(walletBalanceProvider);
+    final transactionsAsync = ref.watch(walletTransactionsProvider);
+
+    final displayName =
+        (user?.name.trim().isNotEmpty ?? false) ? user!.name : 'Usuario';
+    final displayEmail =
+        (user?.email.trim().isNotEmpty ?? false)
+            ? user!.email
+            : AppSeedData.supportEmail;
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -42,7 +51,7 @@ class HomePage extends StatelessWidget {
                   ),
                   const SizedBox(height: 6),
                   Text(
-                    mockUser.name,
+                    displayName,
                     style: const TextStyle(
                       color: Colors.white,
                       fontSize: 30,
@@ -60,29 +69,47 @@ class HomePage extends StatelessWidget {
                         color: Colors.white.withValues(alpha: 0.22),
                       ),
                     ),
-                    child: const Column(
+                    child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        const Text(
                           'Saldo disponible',
                           style: TextStyle(
                             color: Colors.white70,
                             fontSize: 15,
                           ),
                         ),
-                        SizedBox(height: 8),
-                        Text(
-                          '\$12.40 USD',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 34,
-                            fontWeight: FontWeight.w800,
+                        const SizedBox(height: 8),
+                        balanceAsync.when(
+                          data: (balance) => Text(
+                            '${AppSeedData.currencySymbol}${balance.toStringAsFixed(2)} USD',
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 34,
+                              fontWeight: FontWeight.w800,
+                            ),
+                          ),
+                          loading: () => const Text(
+                            'Cargando...',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 24,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          error: (_, _) => const Text(
+                            '\$0.00 USD',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 34,
+                              fontWeight: FontWeight.w800,
+                            ),
                           ),
                         ),
-                        SizedBox(height: 8),
+                        const SizedBox(height: 8),
                         Text(
-                          'Cuenta: jj.arauz@kynsoft.com',
-                          style: TextStyle(
+                          'Cuenta: $displayEmail',
+                          style: const TextStyle(
                             color: Colors.white70,
                             fontSize: 14,
                           ),
@@ -100,24 +127,24 @@ class HomePage extends StatelessWidget {
                   _SectionCard(
                     title: 'Acciones rápidas',
                     child: Row(
-                      children: [
+                      children: const [
                         Expanded(
                           child: _QuickActionCard(
                             icon: Icons.qr_code_2,
                             title: 'Pagar con QR',
-                            subtitle: 'Base Sprint 1',
-                            backgroundColor: const Color(0xFFEFF6FF),
-                            iconColor: const Color(0xFF2563EB),
+                            subtitle: 'Escanea el código de la unidad',
+                            backgroundColor: Color(0xFFEFF6FF),
+                            iconColor: Color(0xFF2563EB),
                           ),
                         ),
-                        const SizedBox(width: 12),
+                        SizedBox(width: 12),
                         Expanded(
                           child: _QuickActionCard(
                             icon: Icons.nfc,
                             title: 'Pagar con NFC',
-                            subtitle: 'Base Sprint 1',
-                            backgroundColor: const Color(0xFFF5F3FF),
-                            iconColor: const Color(0xFF9333EA),
+                            subtitle: 'Acerca tu dispositivo al lector',
+                            backgroundColor: Color(0xFFF5F3FF),
+                            iconColor: Color(0xFF9333EA),
                           ),
                         ),
                       ],
@@ -126,29 +153,33 @@ class HomePage extends StatelessWidget {
                   const SizedBox(height: 16),
                   _SectionCard(
                     title: 'Transacciones recientes',
-                    child: Column(
-                      children: const [
-                        _TransactionTile(
-                          title: 'Bus 001 · 12 de Octubre',
-                          subtitle: '29/01/2026 · 14:35:22',
-                          amount: '\$0.35',
-                          status: 'Aprobada',
+                    child: transactionsAsync.when(
+                      data: (transactions) {
+                        final recent = transactions.take(3).toList();
+
+                        if (recent.isEmpty) {
+                          return const Text('Aún no tienes transacciones registradas.');
+                        }
+
+                        return Column(
+                          children: [
+                            for (int i = 0; i < recent.length; i++) ...[
+                              _TransactionTile(item: recent[i]),
+                              if (i < recent.length - 1)
+                                const SizedBox(height: 12),
+                            ],
+                          ],
+                        );
+                      },
+                      loading: () => const Center(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(vertical: 12),
+                          child: CircularProgressIndicator(),
                         ),
-                        SizedBox(height: 12),
-                        _TransactionTile(
-                          title: 'Bus 832 · Eloy Alfaro',
-                          subtitle: '29/01/2026 · 11:20:15',
-                          amount: '\$0.50',
-                          status: 'Aprobada',
-                        ),
-                        SizedBox(height: 12),
-                        _TransactionTile(
-                          title: 'Bus 145 · Corredor Central',
-                          subtitle: '28/01/2026 · 18:45:30',
-                          amount: '\$1.00',
-                          status: 'Rechazada',
-                        ),
-                      ],
+                      ),
+                      error: (_, _) => const Text(
+                        'No fue posible cargar las transacciones.',
+                      ),
                     ),
                   ),
                 ],
@@ -254,21 +285,16 @@ class _QuickActionCard extends StatelessWidget {
 }
 
 class _TransactionTile extends StatelessWidget {
-  final String title;
-  final String subtitle;
-  final String amount;
-  final String status;
+  final TransactionItem item;
 
   const _TransactionTile({
-    required this.title,
-    required this.subtitle,
-    required this.amount,
-    required this.status,
+    required this.item,
   });
 
   @override
   Widget build(BuildContext context) {
-    final isApproved = status == 'Aprobada';
+    final isApproved = item.status == 'Completado';
+    final formattedDate = DateFormat('dd/MM/yyyy · HH:mm').format(item.date);
 
     return Container(
       padding: const EdgeInsets.all(14),
@@ -294,7 +320,7 @@ class _TransactionTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  title,
+                  '${item.title} · ${item.subtitle}',
                   style: const TextStyle(
                     fontWeight: FontWeight.w700,
                     fontSize: 16,
@@ -302,7 +328,7 @@ class _TransactionTile extends StatelessWidget {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  subtitle,
+                  '$formattedDate · ${item.method}',
                   style: const TextStyle(
                     color: Color(0xFF64748B),
                     fontSize: 13,
@@ -316,7 +342,7 @@ class _TransactionTile extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                amount,
+                '${AppSeedData.currencySymbol}${item.amount.toStringAsFixed(2)}',
                 style: const TextStyle(
                   fontWeight: FontWeight.w800,
                   fontSize: 18,
@@ -332,7 +358,7 @@ class _TransactionTile extends StatelessWidget {
                   borderRadius: BorderRadius.circular(999),
                 ),
                 child: Text(
-                  status,
+                  item.status,
                   style: TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.w600,

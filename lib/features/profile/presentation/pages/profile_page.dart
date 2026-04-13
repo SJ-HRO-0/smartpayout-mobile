@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:smartpayut_mobile/app/router/route_paths.dart';
 import 'package:smartpayut_mobile/features/auth/presentation/controllers/auth_controller.dart';
+import 'package:smartpayut_mobile/shared/config/app_seed_data.dart';
 import 'package:smartpayut_mobile/shared/models/app_user.dart';
 
 class ProfilePage extends ConsumerWidget {
@@ -10,13 +11,19 @@ class ProfilePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final user = ref.watch(authControllerProvider) ??
-        const AppUser(
-          id: '1',
-          name: 'Juan José Aráuz',
-          email: 'jj.arauz@kynsoft.com',
-          role: UserRole.operator,
-        );
+    final user = ref.watch(authControllerProvider);
+
+    final displayName =
+        (user?.name.trim().isNotEmpty ?? false) ? user!.name : 'Usuario';
+    final displayEmail =
+        (user?.email.trim().isNotEmpty ?? false)
+            ? user!.email
+            : AppSeedData.supportEmail;
+    final displayPhone =
+        (user?.phone?.trim().isNotEmpty ?? false)
+            ? user!.phone!
+            : 'No registrado';
+    final displayRole = user != null ? mapUserRoleLabel(user.role) : 'Usuario';
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -59,7 +66,7 @@ class ProfilePage extends ConsumerWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          user.name,
+                          displayName,
                           style: const TextStyle(
                             color: Colors.white,
                             fontSize: 28,
@@ -67,9 +74,9 @@ class ProfilePage extends ConsumerWidget {
                           ),
                         ),
                         const SizedBox(height: 6),
-                        const Text(
-                          'Usuario',
-                          style: TextStyle(
+                        Text(
+                          displayRole,
+                          style: const TextStyle(
                             color: Colors.white70,
                             fontSize: 15,
                           ),
@@ -101,19 +108,25 @@ class ProfilePage extends ConsumerWidget {
                           _ProfileInfoTile(
                             icon: Icons.person_outline,
                             label: 'Nombre completo',
-                            value: user.name,
+                            value: displayName,
                           ),
                           const SizedBox(height: 16),
                           _ProfileInfoTile(
                             icon: Icons.mail_outline,
                             label: 'Correo electrónico',
-                            value: user.email,
+                            value: displayEmail,
+                          ),
+                          const SizedBox(height: 16),
+                          _ProfileInfoTile(
+                            icon: Icons.phone_outlined,
+                            label: 'Teléfono',
+                            value: displayPhone,
                           ),
                           const SizedBox(height: 16),
                           _ProfileInfoTile(
                             icon: Icons.shield_outlined,
                             label: 'Rol',
-                            value: user.role.name,
+                            value: displayRole,
                           ),
                         ],
                       ),
@@ -183,10 +196,10 @@ class ProfilePage extends ConsumerWidget {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  const Text(
-                    'KynSoft Pagos Digitales\nVersión 1.0.0 · 2026',
+                  Text(
+                    '${AppSeedData.companyName} Pagos Digitales\nVersión 1.0.0 · 2026',
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Color(0xFF64748B),
                       fontSize: 13,
                     ),
@@ -198,6 +211,17 @@ class ProfilePage extends ConsumerWidget {
         ),
       ),
     );
+  }
+}
+
+String mapUserRoleLabel(UserRole role) {
+  switch (role) {
+    case UserRole.admin:
+      return 'Administrador';
+    case UserRole.operator:
+      return 'Operador';
+    case UserRole.user:
+      return 'Usuario';
   }
 }
 

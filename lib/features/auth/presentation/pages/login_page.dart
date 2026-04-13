@@ -122,9 +122,17 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                           child: Text(isLoading ? 'Ingresando...' : 'Ingresar'),
                         ),
                       ),
+                      const SizedBox(height: 12),
+                      SizedBox(
+                        width: double.infinity,
+                        child: TextButton(
+                          onPressed: isLoading ? null : () => context.go(RoutePaths.register),
+                          child: const Text('Crear cuenta'),
+                        ),
+                      ),
                       const SizedBox(height: 16),
                       Text(
-                        'Usa un correo con "admin" para entrar como administrador.',
+                        'Accede con tus credenciales para ingresar a la aplicación.',
                         style: theme.textTheme.bodySmall?.copyWith(
                           color: const Color(0xFF64748B),
                         ),
